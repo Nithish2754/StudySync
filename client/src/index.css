@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-bgPrimary text-textPrimary font-sans antialiased overflow-x-hidden;
+  }
+  
+  /* Custom Scrollbar for dark aesthetic */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-bgPrimary;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-bgCard rounded-full border border-bgSecondary;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-cardHover;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-2xl font-medium transition-all duration-300 focus:outline-none whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply bg-accentPurple text-white shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] hover:-translate-y-0.5 border border-purple-500/30;
+  }
+  .btn-ghost {
+    @apply bg-bgSecondary/50 text-textPrimary hover:bg-bgCard border border-white/5 hover:border-white/10;
+  }
+  .btn-danger {
+    @apply bg-red-500/10 text-red-400 border border-red-500/20 hover:bg-red-500/20;
+  }
+  .input {
+    @apply w-full px-4 py-3 bg-bgSecondary border border-white/5 rounded-2xl text-sm text-textPrimary transition-all duration-300 focus:outline-none focus:border-accentPurple focus:ring-1 focus:ring-accentPurple placeholder-textMuted;
+  }
+  
+  .glass-card {
+    @apply bg-bgCard border border-white/5 rounded-3xl transition-all duration-300 shadow-xl;
+  }
+  
+  .page-title {
+    @apply text-4xl font-display font-black tracking-tight mb-2 text-white;
+  }
+  .page-subtitle {
+    @apply text-textSecondary text-sm mb-8;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold tracking-wider uppercase border;
+  }
+}
+
+/* Notebook paper effect utility */
+.paper-texture {
+  position: relative;
+}
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('https://www.transparenttextures.com/patterns/notebook.png');
+  opacity: 0.15;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-neonPurple via-neonBlue to-neonGreen;
+}
+
+/* Glow effects */
+.glow-purple {
+  box-shadow: 0 0 40px -10px rgba(124, 58, 237, 0.4);
+}
+.glow-blue {
+  box-shadow: 0 0 40px -10px rgba(96, 165, 250, 0.3);
+}
+
+/* Asymmetric container shape */
+.curved-container {
+  border-radius: 40px 10px 40px 10px;
+}
